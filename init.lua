@@ -1,5 +1,6 @@
 vim.wo.relativenumber = true;
 vim.opt.cursorline = true;
+vim.wo.number = true;
 
 vim.g.mapleader = ","
 vim.g.localleader = "\\"
