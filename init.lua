@@ -22,7 +22,11 @@ require "paq" {
 	"nvim-lua/plenary.nvim",
 	"mfussenegger/nvim-dap",
 
+	"neoclide/coc.nvim",
+
 	"nvim-treesitter/nvim-treesitter",
+	"tikhomirov/vim-glsl",
+	"wakatime/vim-wakatime",
 
 	{ "williamboman/mason.nvim",
 		ensure_installed = {
@@ -30,6 +34,11 @@ require "paq" {
 		}
 	}
 }
+
+vim.cmd([[
+	inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+]]
+)
 
 require("mason").setup()
 
@@ -47,6 +56,6 @@ rt.setup({
 })
 
 require 'nvim-treesitter.install'.prefer_git = false
-require 'nvim-treesitter.install'.compilers = { 'gcc' }
+require 'nvim-treesitter.install'.compilers = { 'clangd' }
 
 require("custom.lspconfig")
