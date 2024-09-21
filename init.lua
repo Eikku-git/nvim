@@ -1,8 +1,10 @@
 vim.wo.relativenumber = true;
 vim.wo.number = true;
+
 vim.opt.cursorline = true;
 vim.opt.tabstop = 4;
 vim.opt.shiftwidth = 4
+vim.opt.smartindent = true;
 
 vim.g.mapleader = ","
 vim.g.localleader = "\\"
