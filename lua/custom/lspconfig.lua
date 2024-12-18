@@ -1,8 +1,9 @@
-local lspconfig = require("lspconfig")
+local lspconfig = 
 
-lspconfig.clangd.setup {
-	on_attach = function(client, bufnr)
-		client.server_capabilities.signatureHelpProvider = false
-		--on_attach(client, bufnr)
-	end,
+require 'lspconfig'.clangd.setup {
+
+    on_attach = function(client, bufnr)
+        client.server_capabilities.signatureHelpProvider = false
+        --on_attach(client, bufnr)
+    end,
 }
