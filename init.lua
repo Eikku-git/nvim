@@ -9,8 +9,7 @@ vim.opt.smartindent = true;
 vim.g.mapleader = ","
 vim.g.localleader = "\\"
 
-require("neofusion").load()
-require("ibl").setup()
+require 'neofusion'.load()
 
 vim.cmd([[
 filetype indent off
@@ -34,13 +33,15 @@ require "paq" {
 			"clangd"
 		}
 	},
+
+	"lukas-reineke/indent-blankline.nvim",
 }
 
 vim.cmd([[
-	inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 ]])
 
-require "mason".setup()
+require 'mason'.setup()
 
 local rt = require("rust-tools")
 
@@ -62,4 +63,10 @@ require 'nvim-treesitter.configs'.setup {
 	ensure_installed = { "cpp" }
 }
 
-require "custom.lspconfig"
+require 'custom.lspconfig'
+
+require 'ibl'.setup {
+	scope = {
+		enabled = false
+	}
+}
