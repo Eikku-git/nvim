@@ -19,7 +19,6 @@ filetype indent off
 require "paq" {
 	"savq/paq-nvim",
 
-	"neovim/nvim-lspconfig", 
 	"simrat39/rust-tools.nvim",
 	"nvim-lua/plenary.nvim",
 	"mfussenegger/nvim-dap",
@@ -34,15 +33,14 @@ require "paq" {
 		ensure_installed = {
 			"clangd"
 		}
-	}
+	},
 }
 
 vim.cmd([[
 	inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
-]]
-)
+]])
 
-require("mason").setup()
+require "mason".setup()
 
 local rt = require("rust-tools")
 
@@ -57,7 +55,11 @@ rt.setup({
 	},
 })
 
-require 'nvim-treesitter.install'.prefer_git = false
-require 'nvim-treesitter.install'.compilers = { 'clangd' }
+require 'nvim-treesitter.install'.prefer_git = true 
+require 'nvim-treesitter.install'.compilers = { 'clang' }
 
-require("custom.lspconfig")
+require 'nvim-treesitter.configs'.setup {
+	ensure_installed = { "cpp" }
+}
+
+require "custom.lspconfig"
