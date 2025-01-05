@@ -22,9 +22,8 @@ require "paq" {
 	"nvim-lua/plenary.nvim",
 	"mfussenegger/nvim-dap",
 
-	"neoclide/coc.nvim",
+	{ "neoclide/coc.nvim", branch="release" },
 
-	"nvim-treesitter/nvim-treesitter",
 	"tikhomirov/vim-glsl",
 	"wakatime/vim-wakatime",
 
@@ -55,13 +54,6 @@ rt.setup({
 		end,
 	},
 })
-
-require 'nvim-treesitter.install'.prefer_git = true 
-require 'nvim-treesitter.install'.compilers = { 'clang' }
-
-require 'nvim-treesitter.configs'.setup {
-	ensure_installed = { "cpp" }
-}
 
 require 'custom.lspconfig'
 
